@@ -19,7 +19,7 @@ public class DateResponse {
     public DateResponse(Date date) {
         this.id = date.getId();
         this.date = date.getDate();
-        this.state = date.getState();
+        this.state = DateState.mapToDateState(date.getState());
     }
 
     public String getId() {

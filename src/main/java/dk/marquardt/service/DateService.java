@@ -2,6 +2,7 @@ package dk.marquardt.service;
 
 import dk.marquardt.jpa.Date;
 import dk.marquardt.jpa.DateRepository;
+import dk.marquardt.jpa.DateStateDB;
 import dk.marquardt.model.ingoing.DateRequest;
 import dk.marquardt.model.outgoing.DateResponse;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -43,7 +44,7 @@ public class DateService {
             dateRepository.persist(date);
         } else {
             date = optionalDate.get();
-            date.setState(request.getState());
+            date.setState(DateStateDB.mapToDateStateDB(request.getState()));
         }
         return new DateResponse(date);
     }

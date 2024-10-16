@@ -20,7 +20,7 @@ public class Date {
     private LocalDate date;
 
     @Column(name = "STATE", nullable = false)
-    private DateState state;
+    private DateStateDB state;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "REWARD")
@@ -32,7 +32,7 @@ public class Date {
     public Date(DateRequest dateRequest) {
         this.id = UUID.randomUUID().toString();
         this.date = dateRequest.getDate();
-        this.state = dateRequest.getState();
+        this.state = DateStateDB.mapToDateStateDB(dateRequest.getState());
     }
 
     public String getId() {
@@ -51,11 +51,11 @@ public class Date {
         this.date = date;
     }
 
-    public DateState getState() {
+    public DateStateDB getState() {
         return state;
     }
 
-    public void setState(DateState state) {
+    public void setState(DateStateDB state) {
         this.state = state;
     }
 

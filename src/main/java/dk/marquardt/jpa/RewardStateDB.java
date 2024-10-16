@@ -16,7 +16,7 @@ public enum RewardStateDB {
             case SPEND -> {
                 return SPEND;
             }
-            default -> throw new NoSuchElementException("Could not find any mapping state in RewardState for " + state);
+            default -> throw new NoSuchElementException("Could not find any mapping state in RewardStateDB for " + state);
         }
     }
 }

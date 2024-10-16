@@ -1,9 +1,6 @@
 package dk.marquardt.service;
 
-import dk.marquardt.jpa.Date;
-import dk.marquardt.jpa.DateRepository;
-import dk.marquardt.jpa.Reward;
-import dk.marquardt.jpa.RewardRepository;
+import dk.marquardt.jpa.*;
 import dk.marquardt.model.DateState;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -35,9 +32,9 @@ public class RewardBuilder {
     private void checkForRewards(List<Date> dates) {
         List<Date> rewardDates = new ArrayList<>();
         for (Date date : dates) {
-            if (date.getState().equals(DateState.SUCCESS)) {
+            if (date.getState().equals(DateStateDB.SUCCESS)) {
                 rewardDates.add(date);
-            } else if (date.getState().equals(DateState.FAIL)) {
+            } else if (date.getState().equals(DateStateDB.FAIL)) {
                 saveReward(rewardDates);
                 rewardDates.clear();
             }
