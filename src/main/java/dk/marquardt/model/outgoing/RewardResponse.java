@@ -19,7 +19,7 @@ public class RewardResponse {
 
     public RewardResponse(Reward reward) {
         this.id = reward.getId();
-        this.state = reward.getState();
+        this.state = RewardState.mapToRewardState(reward.getState());
         this.dates = getDates(reward.getDates());
     }
 
