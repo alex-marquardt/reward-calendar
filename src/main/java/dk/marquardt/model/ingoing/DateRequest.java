@@ -17,7 +17,15 @@ public class DateRequest {
         return date;
     }
 
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
     public DateState getState() {
         return state;
+    }
+
+    public void setState(DateState state) {
+        this.state = state;
     }
 }
