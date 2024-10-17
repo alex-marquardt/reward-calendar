@@ -12,4 +12,8 @@ public class RewardRequest {
     public RewardState getState() {
         return state;
     }
+
+    public void setState(RewardState state) {
+        this.state = state;
+    }
 }

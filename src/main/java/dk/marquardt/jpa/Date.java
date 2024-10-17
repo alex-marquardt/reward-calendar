@@ -1,6 +1,5 @@
 package dk.marquardt.jpa;
 
-import dk.marquardt.model.DateState;
 import dk.marquardt.model.ingoing.DateRequest;
 import jakarta.persistence.*;
 

@@ -4,7 +4,6 @@ import dk.marquardt.model.RewardState;
 import jakarta.persistence.*;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.UUID;
 
 @Entity
