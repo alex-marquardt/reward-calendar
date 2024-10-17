@@ -2,6 +2,7 @@ package dk.marquardt.api;
 
 import dk.marquardt.model.ingoing.RewardRequest;
 import dk.marquardt.model.outgoing.RewardResponse;
+import dk.marquardt.service.RewardBuilder;
 import dk.marquardt.service.RewardService;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -20,11 +21,14 @@ public class RewardApi {
 
     @Inject
     RewardService rewardService;
+    @Inject
+    RewardBuilder rewardBuilder;
 
     @GET
     @Path("/build")
     public List<RewardResponse> buildRewards() {
-        return rewardService.buildRewards();
+        rewardBuilder.buildRewards();
+        return rewardService.getAllRewards();
     }
 
     @GET

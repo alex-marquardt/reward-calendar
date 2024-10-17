@@ -18,8 +18,6 @@ public class RewardService {
 
     @Inject
     RewardRepository rewardRepository;
-    @Inject
-    RewardBuilder rewardBuilder;
 
     public List<RewardResponse> getAllRewards() {
         List<Reward> rewardsFromDB = rewardRepository.listAll();
@@ -35,12 +33,6 @@ public class RewardService {
         Reward reward = optionalReward.get();
         reward.setState(request.getState());
         return new RewardResponse(reward);
-    }
-
-    public List<RewardResponse> buildRewards() {
-        rewardBuilder.buildRewards();
-        List<Reward> rewards = rewardRepository.listAll();
-        return mapRewards(rewards);
     }
 
     private List<RewardResponse> mapRewards(List<Reward> rewardsFromDB) {
