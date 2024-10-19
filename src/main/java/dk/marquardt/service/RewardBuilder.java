@@ -53,7 +53,7 @@ public class RewardBuilder {
         return true;
     }
 
-    public void saveReward(List<Date> dates) {
+    private void saveReward(List<Date> dates) {
         if (!dates.isEmpty()) {
             rewardRepository.persist(new Reward(dates));
         }
